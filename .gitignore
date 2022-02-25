@@ -1,0 +1,20 @@
+# Environment
+.env
+.editorconfig
+.idea/
+*.iml
+
+
+# Credentials
+/keys/*
+!/keys/README.md
+!/keys/*.pub
+
+
+# Artifacts
+/build/
+__pycache__/
+*.py[cod]
+.venv/
+Pipfile.lock
+
