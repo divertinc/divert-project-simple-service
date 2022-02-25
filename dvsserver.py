@@ -14,6 +14,8 @@ def main():
 
 
 class DvSServer:
+    SERVER_VERSION: str = "1.0"
+    
     def __init__(self):
         self.server_host: str = os.getenv("HOST") or "127.0.0.1"
         self.server_port: int = os.getenv("PORT") or 8001
@@ -35,7 +37,7 @@ class DvRequestHandler(BaseHTTPRequestHandler):
         self.log_message(f"REQUEST: {request_content}")
         
         response = {
-            "server_version": self.version_string(),
+            "server_version": DvSServer.SERVER_VERSION,
             "message": request_content["message"],
         }
         response_body = bytes(json.dumps(response), "utf8")
