@@ -9,12 +9,12 @@ from http import HTTPStatus
 
 
 def main():
-    server = DvSServer()
-    server.serve()
+    service = DvSService()
+    service.serve()
 
 
-class DvSServer:
-    SERVER_VERSION: str = "1.1"
+class DvSService:
+    SERVICE_VERSION: str = "1.2"
     
     def __init__(self):
         self.server_host: str = os.getenv("HOST") or "127.0.0.1"
@@ -37,7 +37,7 @@ class DvRequestHandler(BaseHTTPRequestHandler):
         self.log_message(f"REQUEST: {request_content}")
         
         response = {
-            "server_version": DvSServer.SERVER_VERSION,
+            "service_version": DvSService.SERVICE_VERSION,
             "message": request_content["message"],
         }
         response_body = bytes(json.dumps(response), "utf8")
