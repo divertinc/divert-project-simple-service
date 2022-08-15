@@ -14,7 +14,7 @@ def main():
 
 
 class DvSService:
-    SERVICE_VERSION: str = "1.2"
+    SERVICE_VERSION: str = "1.3"
     
     def __init__(self):
         self.server_host: str = os.getenv("HOST") or "127.0.0.1"
