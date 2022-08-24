@@ -18,7 +18,7 @@ class DvSService:
     
     def __init__(self):
         self.server_host: str = os.getenv("HOST") or "127.0.0.1"
-        self.server_port: int = os.getenv("PORT") or 8001
+        self.server_port: int = int(os.getenv("PORT") or 8001)
 
     def serve(self):
         logging.info(f"Serving at http://{self.server_host}:{self.server_port}")
